@@ -19,26 +19,13 @@ public class TwoSumIndices {
         System.out.println();
     }
     public static int[] twoSum(int[] nums, int target) {
-        //int[] numIndices = new int[] {-1, -1};
-
-        //edge case
-        // if(nums.length < 2 || nums.length > 1000){
-        //     return null;
-        // }
-
-        //if(target < -100000000 || target > 1000000000) return null;
-
         for(int i = 0; i < nums.length; i++){
             for(int j = i + 1; j < nums.length;  j++){
                 if(nums[i] + nums[j] == target) {
-                    //numIndices[0] = i;
-                    //numIndices[1] = j;
                     return new int[]{i, j};
                 }
             }
         }
-
-        //if(numIndices[0] == -1 || numIndices[1] == -1) return null;
 
         return null;
     }
