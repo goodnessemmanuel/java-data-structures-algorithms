@@ -13,7 +13,7 @@ public class SortIntArray {
         printArray(ints);
     }
 
-    private static int[] sortIntArrayDescendingOrder(int[] ints) {
+    public static int[] sortIntArrayDescendingOrder(int[] ints) {
         int[] sortInts = Arrays.copyOf(ints, ints.length); //don't alter the original
         for (int i = 0; i < sortInts.length; i++) {
             int max = sortInts[i];
