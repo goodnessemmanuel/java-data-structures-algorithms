@@ -57,4 +57,13 @@ public class MinimumElement {
         }
         System.out.println("Reversed array = " + Arrays.toString(array));
     }
+
+    private static void reverseV2(int[] input){
+        for (int i = 0; i < input.length / 2; i++) {
+            int temp = input[(input.length - 1) - i ];
+            input[(input.length - 1) - i ] = input[i];
+            input[i] = temp;
+
+        }
+    }
 }
