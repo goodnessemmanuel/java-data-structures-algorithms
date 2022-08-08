@@ -32,9 +32,12 @@ public class TotalAppealOfAString {
     public static void main(String[] args) {
         String test = "jffqgvjzoulfnzaniqpjlriqdogyplgteifddtnhyxbzsbyllsnhopualudvdohnypwqapuujyccjktycjccbuiglvruccoyiawjcdjlumthwyirlrxumhkfikmqrjalidgfgfmhhwxrrepqnsjlqreanvnjjdocjlajajboiyplbsvnpvwvehihenpgkypovxjoouwrqkyutkfyralbamjhjsidljspemqiytgiofaeyngztqmdpredrulhepqwrryugsvrqnuywsokyykrjdpgkftgfyroooemyvqbpfaepyhsbilmepjczjczzddasqrvlkdagotixfunwogdlhftcnnrozdjgrezgcipmuzkhinzzvtqfrpksicvlgbiozeyvgsapaxqljyyocwmoystvigczzpecyjoqqejqfnvggstaqyjtsjuvezqmzthcfynvtxwrzegkssnvnibaojbllexjzxzmepfgqpgvjgkrruwengonivmgwrauilfxdjsnywuaycnwowvykdelufbkhuxclepfelnpmkhaesvbmfrsmfbogrqyxpagglxmippfabeyilkrijzxgusblkjjjgnpzdmaoulprqleeturrpolxuxkuaxfnrhubbsqpmeecwofxfnbhhxvzoftnqsfgtlivcmufmwmwqltmhvuggflllnoniamidilprrqqprnsbjfnvdktcsulipffcxamjxtlsecoyraqexzstmdgeaytxgvzfmwcvztabkejssrqivkimgyphcaloejqfiqymfwwrhguuqgxdmqvrydjzzjwqocirukytgvgdshlcqmjtzfrektmviwgeejtvrddocgwdfliuxnhgulqyphuijxqdppoacpwxojsfbdksordrcvcgvzebnrskhjrcmyahhruopmedynccwhdh";
         //System.out.println(appealSum("code"));
-        System.out.println("non optimized count: " + appealSum(test));
-        TotalAppealOfAString obj = new TotalAppealOfAString();
-        System.out.println("optimized count: " + obj.appealSumOptimized(test));
+//        System.out.println("non optimized count: " + appealSum(test));
+//        TotalAppealOfAString obj = new TotalAppealOfAString();
+//        System.out.println("optimized count: " + obj.appealSumOptimized(test));
+        System.out.println(0 == 0.0);
+        System.out.println(4.3 == 0);
+        System.out.println(null != null);
     }
     public static long appealSum(String s){
         long startTime = System.currentTimeMillis();
