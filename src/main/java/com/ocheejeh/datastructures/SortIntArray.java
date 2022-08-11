@@ -11,6 +11,9 @@ public class SortIntArray {
         int[] sortInts = sortIntArrayDescendingOrder(ints);
         printArray(sortInts);
         printArray(ints);
+        //using selection sorting in ascending order
+        SelectionSort.selectionSort(ints);
+        printArray(ints);
     }
 
     public static int[] sortIntArrayDescendingOrder(int[] ints) {
