@@ -15,6 +15,7 @@ public class Driver {
 //        System.out.println(largest);
         System.out.println(reduceToBinaryTreeAndDetermineGreaterBranchCorrect(new long[]{3, 6, 2, 9, -1, 10}));
         System.out.println(reduceToBinaryTreeAndDetermineGreaterBranch(new long[]{3, 6, 2, 9, -1, 10}));
+        System.out.println(Algorithm.balancedBracket("{}"));
 
        // System.out.println(bin(new int[]{2, 3, 4,5, 6}, 0, 4, 5));
 
