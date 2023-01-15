@@ -2,7 +2,11 @@ package com.ocheejeh.hackerank.certification.algorithms;
 
 import javax.swing.text.Segment;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Week3 {
 
@@ -10,9 +14,16 @@ public class Week3 {
         // test number of segment, birthday challenge
 
         //int n = birthdayNumberOfWayBarCanBeDivided(List.of(2, 2, 1, 3, 2), 4, 2);
-        int n = birthdayNumberOfWayBarCanBeDivided(List.of(1, 2, 1, 3, 2), 3, 2);
+        //int n = birthdayNumberOfWayBarCanBeDivided(List.of(1, 2, 1, 3, 2), 3, 2);
 
-        System.out.println("number of segements is: " + n);
+        //System.out.println("number of segements is: " + n);
+
+        //week3MockTest1(new ArrayList<>(Arrays.asList(2, 6)), new ArrayList<>(Arrays.asList(24, 36)));
+//       int factorCount = week3MockTest(new ArrayList<>(Arrays.asList(1)), new ArrayList<>(Arrays.asList(100)));
+//        int factor2Count = week3MockTestCorrectApproach(new ArrayList<>(Arrays.asList(1)), new ArrayList<>(Arrays.asList(100)));
+       int factorCount = week3MockTest(new ArrayList<>(Arrays.asList(1)), new ArrayList<>(Arrays.asList(96, 48)));
+        int factor2Count = week3MockTestCorrectApproach(new ArrayList<>(Arrays.asList(1)), new ArrayList<>(Arrays.asList(96, 48)));
+        System.out.println();
     }
 
     /**
@@ -82,5 +93,33 @@ public class Week3 {
             sum += n;
         }
         return sum;
+    }
+
+    private static int week3MockTest(List<Integer> a, List<Integer> b){
+        Collections.sort(b);
+        int smallestEle = b.get(0);
+        List<Integer> factors = new ArrayList<>();
+        for (int i = 2; i <= smallestEle; i+=2) {
+            if(smallestEle % i == 0) factors.add(i);
+        }
+        factors =  factors.stream()
+               .filter(n -> b.stream().allMatch(m -> m % n == 0))
+                .filter(n -> a.stream().allMatch(m -> n >= m && n % m == 0))
+               .collect(Collectors.toList());
+
+        return factors.size();
+    }
+
+    private static int week3MockTestCorrectApproach(List<Integer> a, List<Integer> b){
+        Collections.sort(b);
+        int smallestEle = b.get(0);
+        List<Integer> factors = IntStream.rangeClosed(1, smallestEle/2).boxed().filter(i -> smallestEle % i == 0).collect(Collectors.toList());
+       factors.add(smallestEle);
+
+       factors = factors.stream().filter(f -> b.stream().allMatch(i -> i % f == 0))
+               .filter(i -> a.stream().allMatch(j -> i % j == 0))
+               .collect(Collectors.toList());
+
+        return factors.size();
     }
 }

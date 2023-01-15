@@ -1,7 +1,5 @@
 package com.ocheejeh.common;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.*;
@@ -13,9 +11,9 @@ public class Driver {
 //        System.out.println(findSteps(5));
 //        long largest = solution(new long[]{10, 100});
 //        System.out.println(largest);
-        System.out.println(reduceToBinaryTreeAndDetermineGreaterBranchCorrect(new long[]{3, 6, 2, 9, -1, 10}));
-        System.out.println(reduceToBinaryTreeAndDetermineGreaterBranch(new long[]{3, 6, 2, 9, -1, 10}));
-        System.out.println(Algorithm.balancedBracket("{}"));
+//        System.out.println(reduceToBinaryTreeAndDetermineGreaterBranchCorrect(new long[]{3, 6, 2, 9, -1, 10}));
+//        System.out.println(reduceToBinaryTreeAndDetermineGreaterBranch(new long[]{3, 6, 2, 9, -1, 10}));
+//        System.out.println(Algorithm.balancedBracket("{}"));
 
        // System.out.println(bin(new int[]{2, 3, 4,5, 6}, 0, 4, 5));
 
@@ -82,6 +80,31 @@ public class Driver {
         }
         return largestNum;
     }
+
+    /**
+     * method to count total number of executable code lines
+     * while ignoring the comments
+     * @param text
+     * @return
+     */
+    public int countLOC(String text){
+        int eLOC = 0;
+        Scanner scanner = new Scanner(text);
+        while (scanner.hasNextLine()){
+            String line = scanner.nextLine();
+            if(!commentLineDetected(line))
+                eLOC++;
+
+        }
+        scanner.close();
+
+        return eLOC;
+    }
+    public boolean commentLineDetected(String line){
+        line = line.trim();
+        return line.isEmpty() || line.startsWith("//") || line.startsWith("/*") || line.startsWith("*") || line.startsWith("*/");
+    }
+
     public static int bin(int[] arr, int l, int r, int x){
         if(r >= l){
             int mid = 1 + (r - l) / 2;
@@ -653,6 +676,4 @@ class TreeNode {
             traverseInOrder(node.right);
         }
     }
-
-
 }
