@@ -17,6 +17,7 @@ public class JavaBasic {
         A.start();
 
     }
+
 //    interface Syrupable{
 //        void getSugary();
 //    }
@@ -35,7 +36,5 @@ public class JavaBasic {
 //            ;
 //        }
 //    }
-
-
 
 }
