@@ -1,11 +1,12 @@
 package com.ocheejeh.turing;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class TuringChallenge {
     public static void main(String[] args) {
-        int[] k1 = new int[]{1,2,2,3,1};
+        /*int[] k1 = new int[]{1,2,2,3,1};
         int[] k2 = new int[]{1,2,2,3,1,4,2};
         int[] k3 = new int[]{1,2,3,4,5};
         int[] k4 = new int[]{4, 5};
@@ -14,7 +15,12 @@ public class TuringChallenge {
         System.out.println("Smallest possible length of the sub array, k2 is: "+ degreeOfAnArray(k2));
         System.out.println("Smallest possible length of the sub array, k2 is: "+ degreeOfAnArray(k3));
         System.out.println("Smallest possible length of the sub array, k2 is: "+ degreeOfAnArray(k4));
-        System.out.println("Smallest possible length of the sub array, k2 is: "+ degreeOfAnArray(k5));
+        System.out.println("Smallest possible length of the sub array, k2 is: "+ degreeOfAnArray(k5));*/
+
+       /* System.out.println(calPoints(new String[]{"5", "2", "C", "D", "+"})); //ouputs: 30
+        System.out.println(calPoints(new String[]{"1"})); //outputs: 1
+        System.out.println(calPoints(new String[]{"5", "-2", "4", "C", "D", "9", "+", "+"}));*/
+        System.out.println(test(new int[]{2, 7, 4, 1, 8, 1}));
     }
 
     /**
@@ -89,6 +95,38 @@ public class TuringChallenge {
         }
         return count;
     }
+
+    // baseball game
+    public static int calPoints(String[] ops){
+        int result = Integer.MIN_VALUE;
+        List<Integer> scores = new ArrayList<>();
+        for(int i = 0; i < ops.length; i++){
+            switch (ops[i]){
+                case "+" :
+                    int prevSum = scores.get(scores.size() - 1) + scores.get(scores.size() - 2);
+                    scores.add(prevSum);
+                break;
+                case "D" :
+                    int prevMul = scores.get(scores.size() - 1) * 2;
+                    scores.add(prevMul);
+                break;
+                case "C" :
+                    scores.remove(scores.size() - 1);
+                break;
+                default:
+                    scores.add(Integer.valueOf(ops[i]));
+            }
+        }
+
+        int sum = 0;
+        for (Integer n : scores) {
+            sum += n;
+        }
+
+        return  sum;
+    }
+
+
 /*
     public static int degreeOfAnArrayWithoutRecursion(int[] k){
         //get the highest integer occurrence
@@ -134,5 +172,40 @@ public class TuringChallenge {
         return -1;
     }
     */
+
+    public static int test(int[] k){
+        List<Integer> y = new ArrayList<>();
+        for (Integer m: k){
+            y.add(m);
+        }
+        while (y.size() > 1){
+            y = getFight(y);
+        }
+
+        return y.get(0);
+    }
+
+    private static List<Integer> getFight(List<Integer> y) {
+        Collections.sort(y);
+        if(y.size() > 1){
+            int highest = y.get(y.size() - 1);
+            int secondHighest = y.get(y.size() - 2);
+            int diff = highest - secondHighest;
+            List<Integer> list = new ArrayList<>();
+            for (int i = 0; i < y.size() - 2; i++) {
+                list.add(y.get(i));
+            }
+            if(diff > 0){
+                list.add(diff);
+            }
+            return list;
+        }else {
+            return y;
+        }
+    }
+
+    public static void play(){
+
+    }
 
 }
